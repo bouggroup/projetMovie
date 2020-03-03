@@ -53,8 +53,7 @@ public class MovieController {
 	public Page<Movie> listMovies (@PageableDefault(page = 0, size = 8) Pageable page){
 		return this.movieRepository.findAll(page);
 	}
-	
-	
+		
 	@GetMapping("/AZ")
 	public Page<Movie> listMoviesAZ (@PageableDefault(page = 0, size = 8) Pageable page){
 		return this.movieRepository.findByOrderByTitleAsc(page);
@@ -69,7 +68,5 @@ public class MovieController {
 	public Page<Movie> listMoviesDuree (@PageableDefault(page = 0, size = 8) Pageable page,@RequestParam("duree")int duree){
 		return this.movieRepository.findByDurationGreaterThanEqual(page, duree);
 		}
-	
-	
-	
+		
 }
