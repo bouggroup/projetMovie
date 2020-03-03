@@ -9,11 +9,18 @@ import com.capgmini.movieprojet.models.Movie;
 
 public interface MovieRepository extends PagingAndSortingRepository<Movie, Integer>{
 	
+	/**
+	 * FindBy ["Sort By"] ["KeyOption"]
+	 * @param page
+	 * @return
+	 */
 	public Page<Movie> findByOrderByTitleAsc(Pageable page);
+	
+	public Page<Movie> findByDurationGreaterThanEqual(Pageable page,int duree);
 	
 	@Query(value = "select m from Movie as m where duration >= 120")
 	public Page<Movie> findMovieDuration(Pageable page);
 	
-	public Page<Movie> findByDurationGreaterThanEqual(Pageable page,int duree);
+	
 
 }
